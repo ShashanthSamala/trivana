@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: thrivana-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8080
+    healthCheckPath: /
+    autoDeploy: true
+    plan: free
+    region: singapore
+    domains:
+      - api.thrivana.app
